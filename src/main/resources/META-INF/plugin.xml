@@ -42,14 +42,12 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
-        <action id="org.example.HelloWorldAction" 
-                class="org.example.HelloWorldAction" 
-                text="Hello World" 
-                description="Displays a Hello World message">
-            <add-to-group group-id="ToolsMenu" anchor="last"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt H"/>
+        <!-- Add the commit prefix action to the VCS menu -->
+        <action id="org.example.AddCommitPrefixAction"
+                class="org.example.AddCommitPrefixAction"
+                text="Add Prefix"
+                description="Add a prefix to the commit message based on the current branch name">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
         </action>
-
     </actions>
 </idea-plugin>

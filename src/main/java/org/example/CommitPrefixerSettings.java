@@ -16,12 +16,23 @@ import org.jetbrains.annotations.Nullable;
     storages = {@Storage("commitPrefixerSettings.xml")}
 )
 public class CommitPrefixerSettings implements PersistentStateComponent<CommitPrefixerSettings> {
-    /**
-     * Enum defining when the prefix should be added to the commit message.
-     */
+
+    // Default regex pattern: matches "bug/12345-description" or "feature/12345-description"
+    private String branchExtractionPattern = "(bug|feature)/(\\d+)-(.+)";
+
+    // Default format pattern: uses the second capture group from the regex
+    private String commitMessageFormat = "#$2 - $MESSAGE";
+
+    // Whether the plugin is enabled
+    private boolean enabled = true;
+
+    // The prefixing mode
+    private PrefixingMode prefixingMode = PrefixingMode.MANUAL;
+
+    // Enum for prefixing modes
     public enum PrefixingMode {
-        BEFORE_COMMIT("Before commit"),
-        PRE_FILL("Pre-fill in commit dialog");
+        MANUAL("Pre-fill in commit dialog"),
+        AUTOMATIC("Before commit");
 
         private final String displayName;
 
@@ -34,17 +45,6 @@ public class CommitPrefixerSettings implements PersistentStateComponent<CommitPr
         }
     }
 
-    // Default regex pattern: matches "bug/12345-description" or "feature/12345-description"
-    private String branchExtractionPattern = "(bug|feature)/(\\d+)-(.+)";
-    
-    // Default format pattern: uses the second capture group from the regex
-    private String commitMessageFormat = "#$2 - $MESSAGE";
-    
-    // Whether the plugin is enabled
-    private boolean enabled = true;
-
-    // When to add the prefix to the commit message
-    private PrefixingMode prefixingMode = PrefixingMode.BEFORE_COMMIT;
 
     public static CommitPrefixerSettings getInstance(Project project) {
         return project.getService(CommitPrefixerSettings.class);
