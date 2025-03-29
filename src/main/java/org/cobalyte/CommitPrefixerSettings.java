@@ -1,4 +1,4 @@
-package org.example;
+package org.cobalyte;
 
 import com.intellij.openapi.components.*;
 import com.intellij.openapi.project.Project;

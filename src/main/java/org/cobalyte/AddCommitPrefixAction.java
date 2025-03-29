@@ -1,17 +1,12 @@
-package org.example;
+package org.cobalyte;
 
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.CheckinProjectPanel;
 import com.intellij.openapi.vcs.ui.Refreshable;
-import com.intellij.openapi.util.IconLoader;
 import org.jetbrains.annotations.NotNull;
-
-import javax.swing.*;
-import java.io.File;
 
 /**
  * An action that adds a prefix to the commit message based on the current branch name.
@@ -28,7 +23,7 @@ public class AddCommitPrefixAction extends AnAction {
         }
 
         // Get the settings
-        CommitPrefixerSettings settings = CommitPrefixerSettings.getInstance(project);
+        org.cobalyte.CommitPrefixerSettings settings = CommitPrefixerSettings.getInstance(project);
 
         // Only show the button if the plugin is enabled and prefixing mode is MANUAL
         boolean visible = settings.isEnabled() && settings.getPrefixingMode() == CommitPrefixerSettings.PrefixingMode.MANUAL;

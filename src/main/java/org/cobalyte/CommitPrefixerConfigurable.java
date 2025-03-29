@@ -1,4 +1,4 @@
-package org.example;
+package org.cobalyte;
 
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;

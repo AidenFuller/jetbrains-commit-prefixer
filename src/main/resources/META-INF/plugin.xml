@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>org.example.commit-prefixer</id>
+    <id>org.cobalyte.commit-prefixer</id>
     <name>Commit Message Prefixer</name>
-    <vendor email="support@example.com" url="http://www.example.com">Example Vendor</vendor>
+    <vendor email="support@cobalyte.com" url="https://www.cobalyte.com">Cobalyte</vendor>
 
     <description><![CDATA[
     A plugin for JetBrains IDEs that automatically prefixes commit messages with information extracted from branch names.
@@ -28,23 +28,23 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Register the settings service -->
-        <projectService serviceImplementation="org.example.CommitPrefixerSettings"/>
+        <projectService serviceImplementation="org.cobalyte.CommitPrefixerSettings"/>
 
         <!-- Register the settings UI -->
         <projectConfigurable 
             parentId="tools" 
-            instance="org.example.CommitPrefixerConfigurable" 
-            id="org.example.CommitPrefixerConfigurable" 
+            instance="org.cobalyte.CommitPrefixerConfigurable"
+            id="org.cobalyte.CommitPrefixerConfigurable"
             displayName="Commit Prefixer"/>
 
         <!-- Register the commit message prefixer -->
-        <checkinHandlerFactory implementation="org.example.CommitPrefixerCheckinHandlerFactory"/>
+        <checkinHandlerFactory implementation="org.cobalyte.CommitPrefixerCheckinHandlerFactory"/>
     </extensions>
 
     <actions>
         <!-- Add the commit prefix action to the VCS menu -->
-        <action id="org.example.AddCommitPrefixAction"
-                class="org.example.AddCommitPrefixAction"
+        <action id="org.cobalyte.AddCommitPrefixAction"
+                class="org.cobalyte.AddCommitPrefixAction"
                 text="Add Prefix"
                 description="Add a prefix to the commit message based on the current branch name">
             <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
