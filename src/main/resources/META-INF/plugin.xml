@@ -1,0 +1,55 @@
+<idea-plugin>
+    <id>org.example.commit-prefixer</id>
+    <name>Commit Message Prefixer</name>
+    <vendor email="support@example.com" url="http://www.example.com">Example Vendor</vendor>
+
+    <description><![CDATA[
+    A plugin for JetBrains IDEs that automatically prefixes commit messages with information extracted from branch names.
+
+    Features:
+    <ul>
+        <li>Extract information from branch names using configurable regex patterns</li>
+        <li>Format commit messages using configurable format patterns</li>
+        <li>Enable/disable the plugin from the commit dialog</li>
+        <li>Configure the plugin from the IDE settings</li>
+    </ul>
+
+    Example:
+    <ul>
+        <li>Branch name: feature/12345-add-new-feature</li>
+        <li>Commit message: "Initial implementation"</li>
+        <li>Result: "#12345 - Initial implementation"</li>
+    </ul>
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Register the settings service -->
+        <projectService serviceImplementation="org.example.CommitPrefixerSettings"/>
+
+        <!-- Register the settings UI -->
+        <projectConfigurable 
+            parentId="tools" 
+            instance="org.example.CommitPrefixerConfigurable" 
+            id="org.example.CommitPrefixerConfigurable" 
+            displayName="Commit Prefixer"/>
+
+        <!-- Register the commit message prefixer -->
+        <checkinHandlerFactory implementation="org.example.CommitPrefixerCheckinHandlerFactory"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="org.example.HelloWorldAction" 
+                class="org.example.HelloWorldAction" 
+                text="Hello World" 
+                description="Displays a Hello World message">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt H"/>
+        </action>
+
+    </actions>
+</idea-plugin>

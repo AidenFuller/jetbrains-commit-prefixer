@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.17.1'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+// Configure Gradle IntelliJ Plugin
+intellij {
+    version = '2023.1.5'
+    type = 'IC' // Target IDE Platform - IC for IntelliJ IDEA Community Edition
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+// Configure plugin metadata
+patchPluginXml {
+    sinceBuild = '231'
+    untilBuild = '241.*'
+    pluginDescription = '''
+    A plugin for JetBrains IDEs that automatically prefixes commit messages with information extracted from branch names.
+
+    Features:
+    <ul>
+        <li>Extract information from branch names using configurable regex patterns</li>
+        <li>Format commit messages using configurable format patterns</li>
+        <li>Enable/disable the plugin from the commit dialog</li>
+        <li>Configure the plugin from the IDE settings</li>
+    </ul>
+
+    Example:
+    <ul>
+        <li>Branch name: feature/12345-add-new-feature</li>
+        <li>Commit message: "Initial implementation"</li>
+        <li>Result: "#12345 - Initial implementation"</li>
+    </ul>
+    '''
+    changeNotes = 'Initial release of the Commit Message Prefixer plugin'
+}
+
+test {
+    useJUnitPlatform()
+}
