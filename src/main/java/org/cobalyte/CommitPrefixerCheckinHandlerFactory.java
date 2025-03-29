@@ -51,11 +51,6 @@ public class CommitPrefixerCheckinHandlerFactory extends CheckinHandlerFactory {
                 }
 
                 @Override
-                public void refresh() {
-                    checkBox.setSelected(settings.isEnabled());
-                }
-
-                @Override
                 public void saveState() {
                     settings.setEnabled(checkBox.isSelected());
                 }

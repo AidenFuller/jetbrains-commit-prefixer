@@ -99,7 +99,7 @@ public class CommitPrefixerConfigurable implements Configurable {
     }
 
     @Override
-    public void apply() throws ConfigurationException {
+    public void apply() {
         CommitPrefixerSettings settings = CommitPrefixerSettings.getInstance(project);
         settings.setBranchExtractionPattern(branchExtractionPatternField.getText());
         settings.setCommitMessageFormat(commitMessageFormatField.getText());
