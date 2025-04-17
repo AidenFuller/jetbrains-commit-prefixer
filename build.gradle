@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.cobalyte'
-version = '1.2.0'
+version = '1.2.1'
 
 repositories {
     mavenCentral()
@@ -12,8 +12,8 @@ repositories {
 
 // Configure Gradle IntelliJ Plugin
 intellij {
-    version = '2024.3.5'
-    type = 'IC' // Target IDE Platform - IC for IntelliJ IDEA Community Edition
+    version = '2025.1'
+    type = 'RD' // Target IDE Platform - IC for IntelliJ IDEA Community Edition
 }
 
 dependencies {
@@ -24,6 +24,7 @@ dependencies {
 // Configure plugin metadata
 patchPluginXml {
     sinceBuild = '231'
+    untilBuild = ''
     pluginDescription = '''
     A plugin for JetBrains IDEs that automatically prefixes commit messages with information extracted from branch names.
 
@@ -43,11 +44,20 @@ patchPluginXml {
     </ul>
     '''
     changeNotes = '''
-    Version 1.2.0:
-    - Extended compatibility to support 2024.3.x IDEs including Rider 2024.3.6
-
-    Version 1.1.0:
-    - Initial release of the Commit Message Prefixer plugin
+    <h3>Version 1.2.1</h3>
+    <ul>
+        <li>Added support for 2025.1</li>
+    </ul>
+    
+    <h3>Version 1.2.0</h3>
+    <ul>
+        <li>Extended compatibility to support 2024.3.x IDEs including Rider 2024.3.6</li>
+    </ul>
+    
+    <h3>Version 1.1.0</h3>
+    <ul>
+        <li>Initial release of the Commit Message Prefixer plugin</li>
+    </ul>
     '''
 }
 
