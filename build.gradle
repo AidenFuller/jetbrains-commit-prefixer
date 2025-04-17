@@ -12,8 +12,8 @@ repositories {
 
 // Configure Gradle IntelliJ Plugin
 intellij {
-    version = '2025.1'
-    type = 'RD' // Target IDE Platform - IC for IntelliJ IDEA Community Edition
+    version = '2024.3.5'
+    type = 'IC' // Target IDE Platform - IC for IntelliJ IDEA Community Edition
 }
 
 dependencies {
