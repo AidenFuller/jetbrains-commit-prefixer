@@ -31,8 +31,8 @@ public class CommitPrefixerSettings implements PersistentStateComponent<CommitPr
 
     // Enum for prefixing modes
     public enum PrefixingMode {
-        MANUAL("Pre-fill in commit dialog"),
-        AUTOMATIC("Before commit");
+        MANUAL("Manual"),
+        AUTOMATIC("Automatic");
 
         private final String displayName;
 

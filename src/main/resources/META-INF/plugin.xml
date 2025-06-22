@@ -45,7 +45,7 @@
         <!-- Add the commit prefix action to the VCS menu -->
         <action id="org.cobalyte.AddCommitPrefixAction"
                 class="org.cobalyte.AddCommitPrefixAction"
-                text="Add Prefix"
+                text="Add Prefix to Commit Message"
                 description="Add a prefix to the commit message based on the current branch name">
             <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
         </action>
