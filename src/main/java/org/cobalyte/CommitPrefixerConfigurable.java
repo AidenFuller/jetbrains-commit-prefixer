@@ -71,8 +71,8 @@ public class CommitPrefixerConfigurable implements Configurable {
         formatHelp.setForeground(JBColor.GRAY);
 
         JBLabel prefixingHelp = new JBLabel("<html>Select how the prefix should be added to commit messages:<br>" +
-                "<b>Pre-fill in commit dialog</b>: You need to click the 'Add Prefix' button in the commit dialog.<br>" +
-                "<b>Before commit</b>: The prefix will be added automatically before commit.</html>");
+                "<b>Manual</b>: You manually click the 'Add Prefix' button in the commit tool window.<br>" +
+                "<b>Automatic</b>: The prefix is added automatically after you click Commit.</html>");
         prefixingHelp.setForeground(JBColor.GRAY);
 
         // Build the form
